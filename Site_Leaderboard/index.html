@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Math - Leaderboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+</head>
+<body>
+
+    <h1> Speed Math Leaderboard </h1>
+
+    <div class="container">
+        <div class="upload-section">
+            <p>Chargez le fichier <code>scores.json</code> généré par le jeu pour voir les résultats.</p>
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa-solid fa-file"></i> Charger scores.json
+            </label>
+            <input id="file-upload" type="file" accept=".json"/>
+        </div>
+
+        <table id="scoreTable">
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Joueur</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="scoreBody">
+                <!-- Les scores seront insérés ici -->
+                <tr><td colspan="3" style="text-align:center">En attente du fichier...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

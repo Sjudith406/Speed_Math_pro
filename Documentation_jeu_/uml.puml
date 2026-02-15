@@ -1,0 +1,66 @@
+@startuml
+skinparam backgroundColor #f9f9f9
+skinparam class {
+    BackgroundColor White
+    ArrowColor #2980b9
+    BorderColor #2c3e50
+}
+
+package "Moteur Logique (Partagé)" {
+    class GameEngine {
+        - score : int
+        - current_question : String
+        - current_answer : int
+        - hint : String
+        + generate_question() : String
+        + check_answer(user_answer: int) : bool
+    }
+
+    class ScoreManager {
+        - filename : String
+        + is_username_taken(username: String) : bool
+        + save_score(username: String, score: int)
+        + load_scores() : Dictionary
+        + get_top_scores(limit: int) : List
+    }
+}
+
+package "Interface Utilisateur" {
+    class GuiApplication {
+        - root : Tk
+        - music : MusicPlayer
+        - timer : TimerThread
+        + setup_ui()
+        + start_game(mode: String)
+        + check_action()
+        + show_hint()
+    }
+
+    class ConsoleInterface {
+        + run_game()
+    }
+}
+
+class TimerThread {
+    - duration : float
+    - remaining : float
+    + run()
+    + stop()
+}
+
+class MusicPlayer {
+    - enabled : bool
+    + play_background_music()
+    + stop_music()
+}
+
+' Relations
+GuiApplication "1" *-- "1" GameEngine : possède
+GuiApplication "1" *-- "1" ScoreManager : possède
+GuiApplication "1" *-- "1" MusicPlayer : contrôle
+GuiApplication "1" *-- "1" TimerThread : gère
+
+ConsoleInterface ..> GameEngine : instancie
+ConsoleInterface ..> ScoreManager : instancie
+
+@enduml

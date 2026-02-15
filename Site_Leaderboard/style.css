@@ -1,0 +1,58 @@
+
+/** Mise en page générale **/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+h1 { 
+    color: #f1c40f; 
+}
+.container {
+    background-color: #34495e;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    width: 80%;
+    max-width: 600px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #7f8c8d;
+}
+
+th { 
+    background-color: #2980b9; color: white; 
+}
+tr:hover { 
+    background-color: #3e5871; 
+}
+.upload-section { 
+    margin-bottom: 20px; text-align: center; 
+}
+input[type="file"] { 
+    display: none; 
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: #27ae60;
+    border-radius: 4px;
+}
+
+.custom-file-upload i {
+    margin-right: 8px;
+    color: #f1c40f;
+}

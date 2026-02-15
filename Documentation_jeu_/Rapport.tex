@@ -1,0 +1,136 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- BLOC DE PRÉAMBULE ---
+% Ce bloc assure la compatibilité des accents et des polices avec XeLaTeX
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage[french, provide=*]{babel}
+\usepackage{lmodern}     % Charge la police qui supporte le gras en \texttt
+
+% Tu peux aussi ajouter ceci pour ne plus avoir à taper \textbf{\texttt{...}}
+\newcommand{\code}[1]{\textbf{\texttt{#1}}}
+
+% les langues nécessaires
+\babelprovide[import, onchar=ids fonts]{french}
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Définition de la police principale (Sans Serif pour un look moderne)
+\babelfont{rm}{Noto Sans}
+
+% Gestion des listes
+\usepackage{enumitem}
+\setlist[itemize]{label=-}
+
+% --- PACKAGES SUPPLÉMENTAIRES ---
+\usepackage{hyperref}    % Pour les liens cliquables
+\usepackage{listings}    % Pour l'affichage du code source
+\usepackage{xcolor}      % Pour la coloration syntaxique
+\usepackage{graphicx}    % Pour les futures images
+
+% Configuration de l'affichage du code (style Python)
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+% --- INFORMATIONS DU DOCUMENT ---
+\lstset{style=mystyle}
+\title{\textbf{Rapport de Projet : Paradigmes de Programmation}\\ \Large Application : Speed Math (Calcul Mental Express)}
+\author{Judith HEDIBLE}
+\date{Février 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Ce projet consiste en la création d'une application ludo-éducative de calcul mental. L'objectif est de démontrer la mise en œuvre de différents paradigmes de programmation (POO, procédural, événementiel) à travers deux interfaces (console et graphique distinctes partageant une logique commune et une persistance de données en JSON.
+
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+Dans le cadre de la fin du module "Paradigmes de Programmation", j'ai développé l'application \textbf{Speed Math}. Ce projet permettra de mettre en lien les différents paradigmes autour d’une application centrale. Le jeu propose des défis mathématiques de difficulté progressive. Ce rapport détaille l'architecture logicielle, les fonctionnalités de sécurité des données et les modes de déploiement.
+
+\section{Architecture et Paradigmes}
+
+\subsection{Programmation Orientée Objet (POO)}
+La structure centrale du projet repose sur la POO, facilitant la maintenance :
+\begin{itemize}
+    \item \textbf{GameEngine} : Gère la génération de calculs aléatoires et la validation des réponses.
+    \item \textbf{ScoreManager} : Encapsule les opérations de lecture/écriture du fichier \texttt{scores.json}.
+    \item \textbf{MusicPlayer} : Gère l'ambiance sonore via des threads pour ne pas bloquer l'interface.
+\end{itemize}
+Vous pouvez également visualiser cette logique sur le Diagramme UML  via le fichier \texttt{.puml}.
+
+\subsection{Programmation Procédurale}
+La version console (\texttt{speed\_math\_console.py}) suit un flux linéaire et séquentiel, idéal pour comprendre l'exécution pas à pas des instructions et la gestion des entrées utilisateur basiques.
+
+\subsection{Interface Homme-Machine (Événementiel)}
+La version graphique utilise la bibliothèque \texttt{Tkinter}. Ici, le programme attend des "événements" (clics de souris, pressions de touches) pour déclencher des fonctions spécifiques, illustrant la programmation pilotée par les événements. Dans cette version j'ai penser à deux mode \textbf{simple} et un mode \textbf{challenge} avec un timer de 15 secondes par réponse, pour rendre le jeu un peu plus compétitive.
+
+\section{Fonctionnalités et Sécurité}
+
+\subsection{Vérification d'unicité des pseudos}
+Une fonctionnalité clé a été ajoutée pour garantir l'intégrité du classement :
+\begin{enumerate}
+    \item Au démarrage, le programme interroge le \texttt{ScoreManager} pour pouvoir récupérer la liste des scores précédents. Cela permettra d'avoir un Top 10 à jour et également la liste de tous les Joueurs.
+    \item Si àprès vérification le pseudo saisi existe déjà dans la base de données JSON, le jeu bloque l'accès.
+    \item Un message d'erreur invite l'utilisateur à choisir un identifiant unique.
+\end{enumerate}
+
+\subsection{Algorithme d'assistance (Indices)}
+Pour aider le joueur sans rendre le jeu trop facile j'ai rajouter le bouton indice.
+Pour les multiplications complexes (ex: $a \times b$ où $a, b \geq 10$), le moteur de jeu génère automatiquement un indice basé sur la distributivité :
+$$a \times (dizaines\_b + unites\_b)$$
+
+\section{Guide d'Utilisation et Déploiement}
+
+\subsection{Scripts de lancement (Batch)}
+Pour simplifier l'expérience utilisateur sur Windows, deux lanceurs automatisés ont été créés :
+
+\begin{itemize}
+    \item \textbf{Lancer\_Console.bat} : Exécute le script en mode terminal. Ce fichier lance la version texte dans l'invite de commande.
+    \item \textbf{Lancer\_Graphique.bat} : Lance l'interface IHM de manière autonome. Ce fichier lance la version avec fenêtre. \textbf{"pythonw" } est utilisé  au lieu de \textbf{"python"} pour éviter qu'une fenêtre noire de terminal ne s'affiche derrière le jeu.
+\end{itemize}
+Assurez-vous que Python soit bien ajouté au "PATH" de votre ordinateur pour que la commande \texttt{python} fonctionne dans le fichier \texttt{.bat}.
+
+\subsection{Visualisation des scores (Web)}
+Le dossier \textbf{Leaderboard} contient un site web permettant de visualiser le Top 10 des scores de manière externe.
+Le fichier \texttt{index.html} permet de consulter le classement via une page HTML . En chargeant le fichier \texttt{scores.json}, une page web dynamique affiche les meilleurs joueurs.
+
+\subsection{Lancement manuel}
+\begin{itemize}
+    \item Les jeux peuvent être lancer dans un éditeur de fichier (vscode) sur le terminal avec \code{py nom\_du\_fichier\_a\_lancer.py}. Pour que la version graphique fonctionne avec la music et le timer , penser à installer la bibliothèque \textbf{Pygame} avec \code{py -m pip install pygame}.
+    \item Vous pouvez aussi importer les fichier dans un idle Python.
+\end{itemize}
+
+\section{Evolution futur}
+Pour l'avenir je pense rendre le jeu un peu plus compétitif avec le système multijoueurs. Aussi la mise en plce d'une interface (site) et d'une BDD pour pouvoir le top 10 à jour chez tous les joueurs.
+
+\section{Conclusion}
+Ce projet a permis d'explorer la complémentarité des paradigmes de programmation. La séparation entre la logique métier et les interfaces permet d'offrir une expérience utilisateur variée tout en conservant une base de code unique et solide.
+
+\end{document}
