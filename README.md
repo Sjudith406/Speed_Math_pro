@@ -2,35 +2,35 @@
 
 > Un jeu rapide, fun et compétitif pour muscler votre cerveau ! Résolvez des opérations le plus vite possible, débloquez des indices et dominez le classement ! 
 
-🎯 C'est Quoi ?
+## 🎯 C'est Quoi ?
 
-Speed Math est un jeu éducatif conçu pour tester tes réflexes mathématiques. Tu dois :
+### Speed Math est un jeu éducatif conçu pour tester tes réflexes mathématiques. Tu dois :
 
-Calculer le plus vite possible (addition, soustraction, multiplication).
+- Calculer le plus vite possible (addition, soustraction, multiplication).
 
-Apprendre avec un système d'indices intelligents pour les calculs complexes.
+- Apprendre avec un système d'indices intelligents pour les calculs complexes.
 
-Comparer tes scores avec tes amis grâce au leaderboard intégré.
+- Comparer tes scores avec tes amis grâce au leaderboard intégré.
 
-Le meilleur ? Le jeu propose deux modes de jeu différents pour s'adapter à tes envies !
+### Le meilleur ? Le jeu propose deux modes de jeu différents pour s'adapter à tes envies !
 
-⚡ Lancement Rapide
+## Lancement Rapide
 
-Téléchargez le dossier complet du projet et extrayez-le.
+### Téléchargez le dossier complet du projet et extrayez-le.
 
-1️⃣ Prérequis
+## 1️⃣ Prérequis
 
-Assure-toi d'avoir Python 3.8+ installé sur ton ordinateur.
-Si tu veux du son, installe la bibliothèque Pygame :
+### Assure-toi d'avoir Python 3.8+ installé sur ton ordinateur.
+### Si tu veux du son, installe la bibliothèque Pygame :
 
-pip install pygame
-ou
-py -m pip install pygame
+```pip install pygame
+```ou
+```py -m pip install pygame
 
 
-2️⃣ Jouer au Jeu
+## 2️⃣ Jouer au Jeu
 
-Choisis la version que tu préfères :
+### Choisis la version que tu préfères :
 
 🎨 Version Graphique (Tkinter) - Recommandée !
 
