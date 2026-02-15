@@ -1,6 +1,6 @@
-🎮 Speed Math - Le Défi de Calcul Mental Express
+# 🎮 Speed Math - Le Défi de Calcul Mental Express
 
-Un jeu rapide, fun et compétitif pour muscler votre cerveau ! Résolvez des opérations le plus vite possible, débloquez des indices et dominez le classement ! 
+> Un jeu rapide, fun et compétitif pour muscler votre cerveau ! Résolvez des opérations le plus vite possible, débloquez des indices et dominez le classement ! 
 
 🎯 C'est Quoi ?
 
