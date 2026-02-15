@@ -4,7 +4,7 @@
 
 ## 🎯 C'est Quoi ?
 
-### Speed Math est un jeu éducatif conçu pour tester tes réflexes mathématiques. Tu dois :
+#### Speed Math est un jeu éducatif conçu pour tester tes réflexes mathématiques. Tu dois :
 
 - Calculer le plus vite possible (addition, soustraction, multiplication).
 
@@ -12,90 +12,89 @@
 
 - Comparer tes scores avec tes amis grâce au leaderboard intégré.
 
-### Le meilleur ? Le jeu propose deux modes de jeu différents pour s'adapter à tes envies !
+#### Le meilleur ? Le jeu propose deux modes de jeu différents pour s'adapter à tes envies !
 
 ## Lancement Rapide
 
-### Téléchargez le dossier complet du projet et extrayez-le.
+#### Téléchargez le dossier complet du projet et extrayez-le.
 
-## 1️⃣ Prérequis
+### 1️⃣ Prérequis
 
-### Assure-toi d'avoir Python 3.8+ installé sur ton ordinateur.
-### Si tu veux du son, installe la bibliothèque Pygame :
+#### Assure-toi d'avoir Python 3.8+ installé sur ton ordinateur.
+#### Si tu veux du son, installe la bibliothèque Pygame :
 
-```pip install pygame
-```ou
-```py -m pip install pygame
+```
+pip install pygame
+ou
+py -m pip install pygame 
+```
 
+### 2️⃣ Jouer au Jeu
 
-## 2️⃣ Jouer au Jeu
+#### Choisis la version que tu préfères :
 
-### Choisis la version que tu préfères :
+### *Version Graphique (Tkinter) - Recommandée !*
 
-🎨 Version Graphique (Tkinter) - Recommandée !
+#### Une interface moderne avec musique, chronomètre visuel et boutons d'indices.
 
-Une interface moderne avec musique, chronomètre visuel et boutons d'indices.
+#### Windows : Double-clic sur ```Lancer_Graphique.bat```
 
-Windows : Double-clic sur Lancer_Graphique.bat
+#### Manuel : python ```speed_math.py```
 
-Manuel : python speed_math.py
+### *🖥️ Version Terminal (Retro)*
 
-🖥️ Version Terminal (Retro)
+#### Pour les puristes qui veulent jouer directement dans la console.
 
-Pour les puristes qui veulent jouer directement dans la console.
+#### Windows : Double-clic sur ```Lancer_Console.bat```
 
-Windows : Double-clic sur Lancer_Console.bat
+#### Manuel : python ```speed_math_console.py```
 
-Manuel : python speed_math_console.py
+## 🏆 Leaderboard Web
 
-🏆 Leaderboard Web
+- Visualise les records de manière élégante !
 
-Visualise les records de manière élégante !
+- Ouvre le fichier ```index.html``` dans ton navigateur.
 
-Ouvre le fichier index.html dans ton navigateur.
+- Charge le fichier ```scores.json``` de ton dossier de jeu.
 
-Charge le fichier scores.json de ton dossier de jeu.
+#### Admire le Top 10 des meilleurs mathématiciens ! 
 
-Admire le Top 10 des meilleurs mathématiciens ! 
+## Fonctionnalités Techniques
 
- Fonctionnalités Techniques
+#### Ce projet a été développé pour illustrer plusieurs paradigmes de programmation :
 
-Ce projet a été développé pour illustrer plusieurs paradigmes de programmation :
+- POO (Orientée Objet) : Moteur de jeu (GameEngine) et gestion des scores (ScoreManager) encapsulés.
 
-POO (Orientée Objet) : Moteur de jeu (GameEngine) et gestion des scores (ScoreManager) encapsulés.
+- Événementiel : Interface graphique réactive avec Tkinter.
 
-Événementiel : Interface graphique réactive avec Tkinter.
+- Multithreading : Gestion simultanée de la musique de fond et du chronomètre.
 
-Multithreading : Gestion simultanée de la musique de fond et du chronomètre.
+- Persistance des données : Sauvegarde automatique des records au format JSON.
 
-Persistance des données : Sauvegarde automatique des records au format JSON.
+## 💡 Astuces pour Scorer Haut
 
-💡 Astuces pour Scorer Haut
+- Maîtrise la distributivité : Utilise les indices pour décomposer les grandes multiplications.
 
-Maîtrise la distributivité : Utilise les indices pour décomposer les grandes multiplications.
+- Reste zen : En mode Challenge, le temps presse, mais l'erreur est fatale !
 
-Anticipe : Lis le calcul pendant que tu tapes la réponse précédente.
+## 🛠️ Configuration Système
 
-Reste zen : En mode Challenge, le temps presse, mais l'erreur est fatale !
+- OS : Windows 7+ / macOS / Linux
 
-🛠️ Configuration Système
+- Python : 3.8 ou plus
 
-OS : Windows 7+ / macOS / Linux
+- Espace disque : < 10 MB
 
-Python : 3.8 ou plus
+## ❓ FAQ
 
-Espace disque : < 10 MB
-
-❓ FAQ
-
-"Mes scores sont-ils sauvegardés ?"
+### "Mes scores sont-ils sauvegardés ?"
 ✅ Oui ! Tout est stocké dans le fichier scores.json. Ne le supprime pas si tu veux garder tes records !
 
-"Pourquoi le jeu refuse mon pseudo ?"
+#### "Pourquoi le jeu refuse mon pseudo ?"
 ❌ Pour éviter d'écraser le score d'un autre joueur, chaque pseudo doit être unique. Choisis-en un nouveau !
 
-📜 License
+## 📜 License
 
-MIT License - Tu peux utiliser ce code pour apprendre et le modifier comme tu veux !
+#### MIT License - Tu peux utiliser ce code pour apprendre et le modifier comme tu veux !
 
-Bon jeu !
+### Bon jeu !
